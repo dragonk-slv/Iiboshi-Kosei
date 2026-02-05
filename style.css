@@ -18,7 +18,7 @@
   --pad: clamp(16px, 3vw, 28px);
 
   /* fixed header用 */
-  --header-h: 64px;
+  --header-h: 72px;
 }
 
 *{box-sizing:border-box}
@@ -73,6 +73,8 @@ header{
   align-items:center;
   justify-content:space-between;
   gap:12px;
+
+  padding: 4px 0;
 }
 
 .brand{

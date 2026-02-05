@@ -78,9 +78,13 @@ header{
 }
 
 .brand{
-  display:flex; align-items:center; gap:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
   font-weight:800;
   letter-spacing:.02em;
+
+  transform: translateY(1px); /* or 2px */
 }
 
 .dot{

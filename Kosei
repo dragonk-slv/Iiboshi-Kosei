@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>飯干 功惺 | Landing Page</title>
+  <meta name="description" content="飯干 功惺（いいぼし こうせい）の自己紹介・活動・登壇・経歴をまとめたランディングページ。" />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#101a33;
+      --card2:#0f1730;
+      --text:#e9eefc;
+      --muted:#b7c3ee;
+      --line:rgba(255,255,255,.10);
+      --accent:#7aa2ff;
+      --accent2:#7dffcf;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 1080px;
+      --pad: 20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 10% 10%, rgba(122,162,255,.22), transparent 55%),
+        radial-gradient(1000px 700px at 90% 20%, rgba(125,255,207,.12), transparent 55%),
+        radial-gradient(1000px 700px at 60% 90%, rgba(122,162,255,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.75;
+    }
+    a{color:var(--text); text-decoration:none}
+    a:hover{opacity:.9}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,16,32,.85), rgba(11,16,32,.45));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .dot{
+      width:12px;height:12px;border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(122,162,255,.12);
+    }
+    .navlinks{
+      display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .navlinks a{color:var(--muted)}
+    .navlinks a:hover{color:var(--text)}
+
+    /* Sections */
+    section{padding:54px 0}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero{
+      padding:72px 0 44px;
+    }
+    .hero .card{
+      padding:34px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(800px 380px at 30% 0%, rgba(122,162,255,.18), transparent 60%),
+                  radial-gradient(700px 320px at 90% 10%, rgba(125,255,207,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height:1.15;
+      letter-spacing:.01em;
+    }
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+    }
+    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+      color:var(--muted);
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .pill b{color:var(--text); font-weight:700}
+
+    .goal{
+      padding:16px;
+      background: rgba(0,0,0,.14);
+      border:1px solid var(--line);
+      border-radius: 14px;
+    }
+    .goal h2{
+      margin:0 0 6px;
+      font-size:16px;
+      letter-spacing:.02em;
+    }
+    .goal p{margin:0; color:var(--muted); font-size:14px}
+
+    /* About */
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+    }
+    .about-card{padding:26px}
+    .about{
+      display:flex; gap:18px; align-items:flex-start;
+    }
+    .avatar{
+      width:108px; height:108px;
+      border-radius: 20px;
+      border:1px solid var(--line);
+      background: linear-gradient(135deg, rgba(122,162,255,.25), rgba(125,255,207,.12));
+      overflow:hidden;
+      flex: 0 0 auto;
+      position:relative;
+    }
+    .avatar img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      filter: saturate(1.05) contrast(1.03);
+    }
+    .about h2{margin:0 0 8px; font-size:20px}
+    .about p{margin:0; color:var(--muted)}
+    .kv{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap:8px 12px;
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .kv div:nth-child(odd){color:rgba(233,238,252,.85)}
+
+    /* Media */
+    .media .card{padding:26px}
+    .media-head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+    .media h2{margin:0; font-size:20px}
+    .media p{margin:0; color:var(--muted); font-size:14px}
+    .media-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+    }
+    .embed{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      overflow:hidden;
+      background: rgba(0,0,0,.18);
+    }
+    .embed .label{
+      padding:10px 12px;
+      font-size:13px;
+      color:var(--muted);
+      border-bottom:1px solid var(--line);
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+    .embed .label a{color:var(--muted); text-decoration:underline}
+    .ratio{
+      position:relative;
+      width:100%;
+      padding-top:56.25%; /* 16:9 */
+    }
+    .ratio iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
+    .hint{
+      margin-top:10px;
+      font-size:12px;
+      color:rgba(233,238,252,.70);
+    }
+
+    /* Timeline */
+    .timeline .card{padding:26px}
+    .timeline h2{margin:0 0 14px; font-size:20px}
+    .tl{
+      margin:0; padding:0; list-style:none;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .tl li{
+      padding:14px 14px 14px 16px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(0,0,0,.12);
+      position:relative;
+    }
+    .tl li::before{
+      content:"";
+      position:absolute; left:10px; top:16px;
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(122,162,255,.12);
+      transform: translateX(-18px);
+    }
+    .tl .year{font-weight:800; margin-right:8px}
+    .tl .title{font-weight:700}
+    .tl .desc{margin-top:6px; color:var(--muted); font-size:14px}
+
+    footer{
+      padding:28px 0 40px;
+      color:rgba(233,238,252,.70);
+      font-size:12px;
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,.10);
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      align-items:center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns: 1fr; }
+      .grid2{grid-template-columns: 1fr}
+      .media-grid{grid-template-columns: 1fr}
+      .kv{grid-template-columns: 120px 1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <span class="dot" aria-hidden="true"></span>
+          <span>飯干 功惺（いいぼし こうせい）</span>
+        </div>
+        <nav class="navlinks" aria-label="ページ内ナビゲーション">
+          <a href="#philosophy">思想・目標</a>
+          <a href="#about">紹介</a>
+          <a href="#media">登壇動画・スライド</a>
+          <a href="#history">経歴</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO / PHILOSOPHY -->
+  <section class="hero" id="philosophy">
+    <div class="wrap">
+      <div class="card">
+        <div class="hero-inner">
+          <div>
+            <h1>「好奇心が続く場」を増やす。</h1>
+            <p class="lead">
+              CoderDojo を軸に、学び・創作・コミュニティ参加を“選べる当たり前”にしていく。
+              技術は手段。変化は、人と場から生まれる。
+            </p>
+
+            <div class="pillrow">
+              <span class="pill"><b>テーマ</b> コミュニティ / 教育 / ゲーム制作</span>
+              <span class="pill"><b>やっていること</b> メンター・主催 / 登壇 / 制作</span>
+              <span class="pill"><b>好き</b> 企画・設計・ストーリー・体験づくり</span>
+            </div>
+          </div>
+
+          <div class="goal">
+            <h2>目標（ここは自由に書き換えてください）</h2>
+            <p>
+              例：プログラミングに詳しくない人も含め、誰もが「参加していい」と思えるコミュニティを広げる。<br/>
+              例：ゲーム制作の力で、学びの入口と継続を作る。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="grid2">
+        <div class="card about-card">
+          <div class="about">
+            <div class="avatar" aria-label="プロフィール画像">
+              <!-- 画像を差し替え：img/me.jpg などに置き換えてください -->
+              <img src="your-photo.jpg" alt="飯干 功惺のプロフィール写真（差し替え）">
+            </div>
+            <div>
+              <h2>自己紹介</h2>
+              <p>
+                CoderDojo のメンター／主催として活動しながら、ゲーム制作や企画づくりを通して
+                “学びが続く体験”を設計しています。登壇では、コミュニティ参加が技術力だけでなく
+                キャリアや人生にも与える影響をテーマに話しています。
+              </p>
+
+              <div class="kv">
+                <div>主な活動</div><div>CoderDojo メンター / 主催、イベント登壇、制作</div>
+                <div>関わる Dojo</div><div>梅田・西宮（メンター）、川西（主催）</div>
+                <div>得意領域</div><div>企画・設計、教育コミュニティ、ゲーム/体験デザイン</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card about-card">
+          <h2 style="margin:0 0 8px; font-size:20px;">連絡・リンク（必要なら）</h2>
+          <p style="margin:0; color:var(--muted);">
+            SNSやポートフォリオ等のリンクを置く枠です。不要ならこのカードごと削除してOKです。
+          </p>
+
+          <div class="kv" style="margin-top:14px;">
+            <div>Threads</div><div><a href="#" target="_blank" rel="noopener">リンクを入れる</a></div>
+            <div>X</div><div><a href="#" target="_blank" rel="noopener">リンクを入れる</a></div>
+            <div>Email</div><div><a href="mailto:your@email">your@email</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section class="media" id="media">
+    <div class="wrap">
+      <div class="card">
+        <div class="media-head">
+          <div>
+            <h2>登壇動画・スライド</h2>
+            <p>動画とスライドを左右に並べて表示（スマホでは縦並び）</p>
+          </div>
+        </div>
+
+        <div class="media-grid">
+          <!-- YouTube -->
+          <div class="embed">
+            <div class="label">
+              <span>YouTube</span>
+              <a href="https://www.youtube.com/watch?v=oA9whGKyVO4" target="_blank" rel="noopener">元リンクを開く</a>
+            </div>
+            <div class="ratio">
+              <iframe
+                src="https://www.youtube.com/embed/oA9whGKyVO4"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+
+          <!-- Google Slides -->
+          <div class="embed">
+            <div class="label">
+              <span>Slides</span>
+              <a href="https://docs.google.com/presentation/d/1V3q36gGz1-IukVLkSLMYnnktwdTGLXRx4w2hHyZ4hKk/edit?usp=sharing"
+                 target="_blank" rel="noopener">元リンクを開く</a>
+            </div>
+            <div class="ratio">
+              <!--
+                NOTE:
+                Google スライドは「ファイル > 共有 > ウェブに公開」してから出る “埋め込み用URL(iframe)” が一番確実です。
+                ここでは /embed を使った一般的な形を入れています。
+              -->
+              <iframe
+                src="https://docs.google.com/presentation/d/1V3q36gGz1-IukVLkSLMYnnktwdTGLXRx4w2hHyZ4hKk/embed?start=false&loop=false&delayms=3000"
+                title="Google Slides"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="hint">
+              スライドが表示されない場合：Googleスライド側で「ウェブに公開」をONにして、そこで出る埋め込みURLに差し替えてください。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="timeline" id="history">
+    <div class="wrap">
+      <div class="card">
+        <h2>経歴</h2>
+        <ul class="tl">
+          <li>
+            <div><span class="year">2016</span><span class="title">DojoConJapan2016 最優秀賞受賞</span></div>
+            <div class="desc">翌年、アイルランドで開催された Coolest Projects に招待。</div>
+          </li>
+          <li>
+            <div><span class="year">2020–</span><span class="title">CoderDojo 梅田 / 西宮 メンター</span></div>
+            <div class="desc">活動を継続的にサポート。</div>
+          </li>
+          <li>
+            <div><span class="year">2023</span><span class="title">DojoConJapan2023（奈良女子大学）スピーカー登壇</span></div>
+            <div class="desc">登壇を通して、活動や学びの体験を発信。</div>
+          </li>
+          <li>
+            <div><span class="year">2024</span><span class="title">関西オープンフォーラム2024 登壇</span></div>
+            <div class="desc">jus研究会にて「子供たちの好奇心を育む場—CoderDojo」について発表。</div>
+          </li>
+          <li>
+            <div><span class="year">2024–</span><span class="title">CoderDojo 川西 主催</span></div>
+            <div class="desc">主催者として活動開始。</div>
+          </li>
+          <li>
+            <div><span class="year">2026</span><span class="title">TCP2026 基調講演 登壇</span></div>
+            <div class="desc">
+              「技術力だけじゃない。キャリアと人生を劇的に変える『コミュニティ参加』という選択肢 〜国内4大コミュニティの事例から〜」
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>© <span id="y"></span> 飯干 功惺</div>
+        <div style="color:rgba(233,238,252,.55)">Built with plain HTML/CSS</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

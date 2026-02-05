@@ -18,7 +18,7 @@
   --pad: clamp(16px, 3vw, 28px);
 
   /* fixed header用 */
-  --header-h: 72px;
+  --header-h: 56px;
 }
 
 *{box-sizing:border-box}

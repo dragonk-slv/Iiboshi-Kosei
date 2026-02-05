@@ -5,259 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>飯干 功惺 | Landing Page</title>
   <meta name="description" content="飯干 功惺（いいぼし こうせい）の自己紹介・活動・登壇・経歴をまとめたランディングページ。" />
-  <style>
-    :root{
-      --bg:#0b1020;
-      --card:#101a33;
-      --card2:#0f1730;
-      --text:#e9eefc;
-      --muted:#b7c3ee;
-      --line:rgba(255,255,255,.10);
-      --accent:#7aa2ff;
-      --accent2:#7dffcf;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
-      --max: 1080px;
-      --pad: 20px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
-      background:
-        radial-gradient(1200px 700px at 10% 10%, rgba(122,162,255,.22), transparent 55%),
-        radial-gradient(1000px 700px at 90% 20%, rgba(125,255,207,.12), transparent 55%),
-        radial-gradient(1000px 700px at 60% 90%, rgba(122,162,255,.10), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.75;
-    }
-    a{color:var(--text); text-decoration:none}
-    a:hover{opacity:.9}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
-    header{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,16,32,.85), rgba(11,16,32,.45));
-      border-bottom:1px solid var(--line);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:12px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:700;
-      letter-spacing:.02em;
-    }
-    .dot{
-      width:12px;height:12px;border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(122,162,255,.12);
-    }
-    .navlinks{
-      display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
-      font-size:14px;
-      color:var(--muted);
-    }
-    .navlinks a{color:var(--muted)}
-    .navlinks a:hover{color:var(--text)}
-
-    /* Sections */
-    section{padding:54px 0}
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero{
-      padding:72px 0 44px;
-    }
-    .hero .card{
-      padding:34px;
-      overflow:hidden;
-      position:relative;
-    }
-    .hero .card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(800px 380px at 30% 0%, rgba(122,162,255,.18), transparent 60%),
-                  radial-gradient(700px 320px at 90% 10%, rgba(125,255,207,.10), transparent 60%);
-      pointer-events:none;
-    }
-    .hero-inner{
-      position:relative;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:start;
-    }
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height:1.15;
-      letter-spacing:.01em;
-    }
-    .lead{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:16px;
-    }
-    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.12);
-      color:var(--muted);
-      font-size:13px;
-      white-space:nowrap;
-    }
-    .pill b{color:var(--text); font-weight:700}
-
-    .goal{
-      padding:16px;
-      background: rgba(0,0,0,.14);
-      border:1px solid var(--line);
-      border-radius: 14px;
-    }
-    .goal h2{
-      margin:0 0 6px;
-      font-size:16px;
-      letter-spacing:.02em;
-    }
-    .goal p{margin:0; color:var(--muted); font-size:14px}
-
-    /* About */
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-    }
-    .about-card{padding:26px}
-    .about{
-      display:flex; gap:18px; align-items:flex-start;
-    }
-    .avatar{
-      width:108px; height:108px;
-      border-radius: 20px;
-      border:1px solid var(--line);
-      background: linear-gradient(135deg, rgba(122,162,255,.25), rgba(125,255,207,.12));
-      overflow:hidden;
-      flex: 0 0 auto;
-      position:relative;
-    }
-    .avatar img{
-      width:100%; height:100%; object-fit:cover; display:block;
-      filter: saturate(1.05) contrast(1.03);
-    }
-    .about h2{margin:0 0 8px; font-size:20px}
-    .about p{margin:0; color:var(--muted)}
-    .kv{
-      display:grid;
-      grid-template-columns: 140px 1fr;
-      gap:8px 12px;
-      margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:14px;
-    }
-    .kv div:nth-child(odd){color:rgba(233,238,252,.85)}
-
-    /* Media */
-    .media .card{padding:26px}
-    .media-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      margin-bottom:16px;
-    }
-    .media h2{margin:0; font-size:20px}
-    .media p{margin:0; color:var(--muted); font-size:14px}
-    .media-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-    }
-    .embed{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      overflow:hidden;
-      background: rgba(0,0,0,.18);
-    }
-    .embed .label{
-      padding:10px 12px;
-      font-size:13px;
-      color:var(--muted);
-      border-bottom:1px solid var(--line);
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-    }
-    .embed .label a{color:var(--muted); text-decoration:underline}
-    .ratio{
-      position:relative;
-      width:100%;
-      padding-top:56.25%; /* 16:9 */
-    }
-    .ratio iframe{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      border:0;
-    }
-    .hint{
-      margin-top:10px;
-      font-size:12px;
-      color:rgba(233,238,252,.70);
-    }
-
-    /* Timeline */
-    .timeline .card{padding:26px}
-    .timeline h2{margin:0 0 14px; font-size:20px}
-    .tl{
-      margin:0; padding:0; list-style:none;
-      display:flex; flex-direction:column; gap:12px;
-    }
-    .tl li{
-      padding:14px 14px 14px 16px;
-      border:1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(0,0,0,.12);
-      position:relative;
-    }
-    .tl li::before{
-      content:"";
-      position:absolute; left:10px; top:16px;
-      width:8px; height:8px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(122,162,255,.12);
-      transform: translateX(-18px);
-    }
-    .tl .year{font-weight:800; margin-right:8px}
-    .tl .title{font-weight:700}
-    .tl .desc{margin-top:6px; color:var(--muted); font-size:14px}
-
-    footer{
-      padding:28px 0 40px;
-      color:rgba(233,238,252,.70);
-      font-size:12px;
-      border-top:1px solid var(--line);
-      background: rgba(0,0,0,.10);
-    }
-    .foot{
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-      align-items:center;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px){
-      .hero-inner{grid-template-columns: 1fr; }
-      .grid2{grid-template-columns: 1fr}
-      .media-grid{grid-template-columns: 1fr}
-      .kv{grid-template-columns: 120px 1fr}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -337,12 +85,12 @@
         </div>
 
         <div class="card about-card">
-          <h2 style="margin:0 0 8px; font-size:20px;">連絡・リンク（必要なら）</h2>
-          <p style="margin:0; color:var(--muted);">
+          <h2 class="card-title">連絡・リンク（必要なら）</h2>
+          <p class="muted">
             SNSやポートフォリオ等のリンクを置く枠です。不要ならこのカードごと削除してOKです。
           </p>
 
-          <div class="kv" style="margin-top:14px;">
+          <div class="kv">
             <div>Threads</div><div><a href="#" target="_blank" rel="noopener">リンクを入れる</a></div>
             <div>X</div><div><a href="#" target="_blank" rel="noopener">リンクを入れる</a></div>
             <div>Email</div><div><a href="mailto:your@email">your@email</a></div>
@@ -355,11 +103,11 @@
   <!-- MEDIA -->
   <section class="media" id="media">
     <div class="wrap">
-      <div class="card">
+      <div class="card media-card">
         <div class="media-head">
           <div>
             <h2>登壇動画・スライド</h2>
-            <p>動画とスライドを左右に並べて表示（スマホでは縦並び）</p>
+            <p class="muted">動画とスライドを左右に並べて表示（スマホでは縦並び）</p>
           </div>
         </div>
 
@@ -388,11 +136,6 @@
                  target="_blank" rel="noopener">元リンクを開く</a>
             </div>
             <div class="ratio">
-              <!--
-                NOTE:
-                Google スライドは「ファイル > 共有 > ウェブに公開」してから出る “埋め込み用URL(iframe)” が一番確実です。
-                ここでは /embed を使った一般的な形を入れています。
-              -->
               <iframe
                 src="https://docs.google.com/presentation/d/1V3q36gGz1-IukVLkSLMYnnktwdTGLXRx4w2hHyZ4hKk/embed?start=false&loop=false&delayms=3000"
                 title="Google Slides"
@@ -411,7 +154,7 @@
   <!-- HISTORY -->
   <section class="timeline" id="history">
     <div class="wrap">
-      <div class="card">
+      <div class="card timeline-card">
         <h2>経歴</h2>
         <ul class="tl">
           <li>
@@ -449,7 +192,7 @@
     <div class="wrap">
       <div class="foot">
         <div>© <span id="y"></span> 飯干 功惺</div>
-        <div style="color:rgba(233,238,252,.55)">Built with plain HTML/CSS</div>
+        <div class="muted small">Built with plain HTML/CSS</div>
       </div>
     </div>
   </footer>

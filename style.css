@@ -75,6 +75,7 @@ header{
   gap:12px;
 
   padding: 4px 0;
+  transform: translateY(2px);
 }
 
 .brand{
